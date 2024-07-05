@@ -1,5 +1,13 @@
 <div class="container">
-  <mat-card appearance="outlined">
-    <mat-card-content>Simple card</mat-card-content>
-  </mat-card>
+  @if(dogs) {
+  <cdk-virtual-scroll-viewport itemSize="1" class="viewport">
+    <div *cdkVirtualFor="let item of dogs" class="example-item">
+      <mat-card appearance="outlined">
+        <mat-card-content>{{item.link | toMedia}}</mat-card-content>
+      </mat-card>
+    </div>
+  </cdk-virtual-scroll-viewport>
+  }@else {
+  <mat-spinner></mat-spinner>
+  }
 </div>
